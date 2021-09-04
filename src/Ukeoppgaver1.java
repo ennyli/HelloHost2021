@@ -1,4 +1,3 @@
-import javax.crypto.spec.PSource;
 import java.util.Arrays;
 
 public class Ukeoppgaver1 {
@@ -121,4 +120,4 @@ public class Ukeoppgaver1 {
                 " sammenlikninger for å finne minste og største verdien.");
         return new int[]{m1, m2};
     }
-}
+} // class Ukeoppgaver1
