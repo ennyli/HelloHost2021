@@ -1,3 +1,5 @@
+package Ukesoppgaver2;
+
 public class Program {
     /**
      *  Opgpave 2 - avsnitt 1.2.2
@@ -13,8 +15,8 @@ public class Program {
         System.out.println("\nStørste verdi ligger på plass " + m);
 
         Tabell2.skriv(a, 0, 4);
-        // Tabell2.skriv(a);
+        // Ukesoppgaver2.Tabell2.skriv(a);
 
     } // main
 
-} // class Program
+} // class Ukesoppgaver2.Program

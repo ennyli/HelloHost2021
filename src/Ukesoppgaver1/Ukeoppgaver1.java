@@ -1,3 +1,5 @@
+package Ukesoppgaver1;
+
 import java.util.Arrays;
 
 public class Ukeoppgaver1 {
@@ -22,7 +24,7 @@ public class Ukeoppgaver1 {
 
         // svar til avsnitt 1.1.3
         int [] b = minmaks(a);
-        System.out.println("Tabell b består av: " + Arrays.toString(b));
+        System.out.println("Ukesoppgaver2.Tabell b består av: " + Arrays.toString(b));
 
         /**
          * Oppgave 6 - avsnitt 1.1.3
@@ -120,4 +122,4 @@ public class Ukeoppgaver1 {
                 " sammenlikninger for å finne minste og største verdien.");
         return new int[]{m1, m2};
     }
-} // class Ukeoppgaver1
+} // class Ukesoppgaver1.Ukeoppgaver1

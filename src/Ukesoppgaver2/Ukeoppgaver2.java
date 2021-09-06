@@ -1,3 +1,5 @@
+package Ukesoppgaver2;
+
 import java.util.Arrays;
 public class Ukeoppgaver2 {
 
@@ -13,4 +15,4 @@ public class Ukeoppgaver2 {
         int [] forAlle = {1,2,3,4,5,6,7};
         for (int tall : forAlle) System.out.print(tall + " ");
     }
-} // class Ukeoppgaver2
+} // class Ukesoppgaver2.Ukeoppgaver2

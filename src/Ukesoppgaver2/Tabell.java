@@ -1,3 +1,5 @@
+package Ukesoppgaver2;
+
 public class Tabell {
 
     private Tabell() { } // privat standardkontruktør som hindrer instansiering
@@ -5,7 +7,7 @@ public class Tabell {
     /**
      *  Oppgave 1 - avsnitt 1.2.1
      *  Lag to min-metoder (metoder som finner posisjonen til den minste verdien) tilsvarende
-     *  de to maks-metodene i Programkode 1.2.1 b) og 1.2.1 c). Legg dem i samleklassen Tabell.
+     *  de to maks-metodene i Programkode 1.2.1 b) og 1.2.1 c). Legg dem i samleklassen Ukesoppgaver2.Tabell.
      */
     public static int min(int[] a, int fra, int til) {
         if (fra < 0 || til > a.length || fra > til) {
@@ -27,4 +29,4 @@ public class Tabell {
     public static int min(int[] a) {
         return min(a,0,a.length); // kaller på metoden over og returnerer hele listen.
     }
-} // class Tabell
+} // class Ukesoppgaver2.Tabell

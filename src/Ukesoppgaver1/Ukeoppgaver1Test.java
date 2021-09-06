@@ -1,3 +1,7 @@
+package Ukesoppgaver1;
+
+import org.junit.jupiter.api.Assertions;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class Ukeoppgaver1Test {
@@ -15,10 +19,10 @@ class Ukeoppgaver1Test {
 
         // Tester coner cases ("Spesialtilfellene")
         int[] b = {1, 4, 17, 10, 6, 20, 8};
-        assertEquals(0, Ukeoppgaver1.min(b));
+        Assertions.assertEquals(0, Ukeoppgaver1.min(b));
 
         int[] c = {8, 4, 17, 10, 6, 20, 1};
-        assertEquals(6, Ukeoppgaver1.min(c));
+        Assertions.assertEquals(6, Ukeoppgaver1.min(c));
 
     }
 }

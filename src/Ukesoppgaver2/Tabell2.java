@@ -1,3 +1,5 @@
+package Ukesoppgaver2;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -86,7 +88,7 @@ public class Tabell2 { // Samleklasse for tabellmetoder
     /**
      *  Oppgave 2 - avsnitt 1.2.2
      *  Lag metoden public static void bytt(char[] c, int i, int j). Den skal bytte om innholdet i posisjon
-     *  i og j  i char-tabellen c. Legg metoden i samleklassen Tabell2.
+     *  i og j  i char-tabellen c. Legg metoden i samleklassen Ukesoppgaver2.Tabell2.
      */
     public static void bytt(char[] c, int i, int j) {
         char temp = c[i]; c[i] = c[j]; c[j] = temp;
@@ -100,7 +102,7 @@ public class Tabell2 { // Samleklasse for tabellmetoder
      *
      * 	Lag så metoden public static void skriv(int[] a).
      * 	Den skal skrive ut hele tabellen - alle på én linje, en blank mellom hvert tall.
-     * 	Ikke mellomrom og ikke linjeskift etter siste verdi. Legg begge metodene i samleklassen Tabell.
+     * 	Ikke mellomrom og ikke linjeskift etter siste verdi. Legg begge metodene i samleklassen Ukesoppgaver2.Tabell.
      */
     public static void skriv(int[] a, int fra, int til) { // ** fungerer ikke som den skal ***
         for (int i = fra + 1; i < til; ++i) {
@@ -120,7 +122,7 @@ public class Tabell2 { // Samleklasse for tabellmetoder
      *  Oppgave 5 - avsnitt 1.2.2
      *  Lag to skrivln-metoder. De skal ha samme signatur og fungere på samme måte som de to
      *  skriv-metodene i Oppgave 4 , men utskriften skal avsluttes med et linjeskift.
-     *  Legg begge metodene i samleklassen Tabell.
+     *  Legg begge metodene i samleklassen Ukesoppgaver2.Tabell.
      */
     public static void skrivln(int[] a, int fra, int til) {
         if (til - fra > 0) {
@@ -128,4 +130,4 @@ public class Tabell2 { // Samleklasse for tabellmetoder
         }
     }
 
-} // class Tabell2
+} // class Ukesoppgaver2.Tabell2
