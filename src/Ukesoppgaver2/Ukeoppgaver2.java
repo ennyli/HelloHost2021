@@ -15,4 +15,4 @@ public class Ukeoppgaver2 {
         int [] forAlle = {1,2,3,4,5,6,7};
         for (int tall : forAlle) System.out.print(tall + " ");
     }
-} // class Ukesoppgaver2.Ukeoppgaver2
+} // class Ukesoppgaver2

@@ -32,9 +32,10 @@ public class Ukeoppgaver1 {
          * long fak(int n) som regner ut n!. Hvor mange multiplikasjoner utføres i metoden?
          */
         // svar:
-        int n = 10;
+        int n = 5;
         System.out.println("Fakultet blir: " + fak(n) + ".");
     }
+
     static long fak(int n) {
         if (n == 1) {
             return 1;
