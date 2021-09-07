@@ -1,6 +1,7 @@
 package Ukesoppgaver2;
 
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 import java.util.Random;
 
 /**
@@ -49,40 +50,39 @@ public class Tabell2 { // Samleklasse for tabellmetoder
     // Programkode 1.2.1 b)
     // Metoden maks(int[] a, int fra, int til)
     public static int maks(int[] a, int fra, int til) {
-        if (fra < 0 || til > a.length || fra >= til) {
-            throw new IllegalArgumentException("Illegal interval!");
+        // kontrollerer feil
+        fratilKontroll(a.length, fra, til);
+        if (fra == til) {
+            throw new NoSuchElementException("fra(" + fra + ") = til(" + til + ") - tomt tabellintervall!");
         }
 
-        int m = fra;             // indeks til største verdi i a[fra:til)
+        int max_index = fra;             // indeks til største verdi i a[fra:til)
         int maksverdi = a[fra];  // største verdi i a[fra:til)
 
-        for (int i = fra + 1; i < til; i++) if (a[i] > maksverdi)
-        {
-            m = i;               // indeks til største verdi oppdateres
-            maksverdi = a[m];    // største verdi oppdateres
+        for (int i = fra + 1; i < til; i++) {
+            if (a[i] > maksverdi) {// indeks til største verdi oppdateres
+                maksverdi = a[i]; // største verdi oppdateres
+            }
         }
-        return m;  // posisjonen til største verdi i a[fra:til)
+        return maksverdi;  // posisjonen til største verdi i a[fra:til)
     }
 
     // Programkode 1.2.1 c)
     // Metoden maks(int[] a)
     public static int maks(int[] a) { // bruker hele tabellen
-
-        return maks(a,0,a.length);  // kaller metoden over
+        return maks(a,1,a.length);  // kaller metoden over
     }
-    public static int min(int[] a, int fra, int til) {
-        if (fra < 0 || til > a.length || fra >= til)
-            throw new IllegalArgumentException("Illegalt intervall!");
 
-        int m = fra;             // indeks til minste verdi i a[fra:til>
+    public static int min(int[] a, int fra, int til) {
+        int mi = fra;             // indeks til minste verdi i a[fra:til>
         int minverdi = a[fra];  // minste verdi i a[fra:til>
 
         for (int i = fra + 1; i < til; i++) if (a[i] < minverdi) {
-            m = i;               // indeks til minste verdi oppdateres
-            minverdi = a[m];    // minste verdi oppdateres
+            mi = i;               // indeks til minste verdi oppdateres
+            minverdi = a[mi];    // minste verdi oppdateres
         }
 
-        return m;  // posisjonen til minste verdi i a[fra:til)
+        return mi;  // posisjonen til minste verdi i a[fra:til)
     }
 
     // min-metodene - se Oppgave 1 i Avsnitt 1.2.1
@@ -94,7 +94,7 @@ public class Tabell2 { // Samleklasse for tabellmetoder
     /**
      *  Oppgave 2 - avsnitt 1.2.2
      *  Lag metoden public static void bytt(char[] c, int i, int j). Den skal bytte om innholdet i posisjon
-     *  i og j  i char-tabellen c. Legg metoden i samleklassen Ukesoppgaver2.Tabell2.
+     *  i og j  i char-tabellen c. Legg metoden i samleklassen Tabell.
      */
     public static void bytt(char[] c, int i, int j) {
         char temp = c[i]; c[i] = c[j]; c[j] = temp;
@@ -108,7 +108,7 @@ public class Tabell2 { // Samleklasse for tabellmetoder
      *
      * 	Lag så metoden public static void skriv(int[] a).
      * 	Den skal skrive ut hele tabellen - alle på én linje, en blank mellom hvert tall.
-     * 	Ikke mellomrom og ikke linjeskift etter siste verdi. Legg begge metodene i samleklassen Ukesoppgaver2.Tabell.
+     * 	Ikke mellomrom og ikke linjeskift etter siste verdi. Legg begge metodene i samleklassen Tabell.
      */
 
     public static void skriv(int[] a, int fra, int til) {
@@ -130,7 +130,7 @@ public class Tabell2 { // Samleklasse for tabellmetoder
      *  Oppgave 5 - avsnitt 1.2.2
      *  Lag to skrivln-metoder. De skal ha samme signatur og fungere på samme måte som de to
      *  skriv-metodene i Oppgave 4 , men utskriften skal avsluttes med et linjeskift.
-     *  Legg begge metodene i samleklassen Ukesoppgaver2.Tabell.
+     *  Legg begge metodene i samleklassen Tabell.
      */
     public static void skrivln(int[] a, int fra, int til) {
         if (til - fra > 0) {
@@ -142,7 +142,7 @@ public class Tabell2 { // Samleklasse for tabellmetoder
      *  Oppgave 1  - avslitt 1.2.3
      *  Legg metodene Programkode 1.2.3 a) og 1.2.3 d), inn i samleklassen Tabell.
      */
-    // 1.2.3 a)
+    // Programkode 1.2.3 a)
     public static void fratilKontroll(int tablengde, int fra, int til)
     {
         if (fra < 0)                                  // fra er negativ
@@ -157,7 +157,7 @@ public class Tabell2 { // Samleklasse for tabellmetoder
             throw new IllegalArgumentException
                     ("fra(" + fra + ") > til(" + til + ") - illegalt intervall!");
     }
-    // 1.2.3 d)
+    // Programkode 1.2.3 d)
     public static void vhKontroll(int tablengde, int v, int h)
     {
         if (v < 0)
@@ -171,5 +171,10 @@ public class Tabell2 { // Samleklasse for tabellmetoder
             throw new IllegalArgumentException
                     ("v = " + v + ", h = " + h);
     }
+
+    /**
+     *  Oppgave 2 - avsnitt 1.2.3
+     *  Sett deg inn i (se kildekoden) metoden rangeCheck() i Arrays.
+     */
 
 } // class Ukesoppgaver2.Tabell2
