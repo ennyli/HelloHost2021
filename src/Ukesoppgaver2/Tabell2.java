@@ -5,16 +5,19 @@ import java.util.Random;
 
 /**
  * Oppgave 1 - avsnitt 1.2.2
+ * Bygg opp class Tabell slik som beskrevet i Programkode 1.2.2 a).
  */
 public class Tabell2 { // Samleklasse for tabellmetoder
     private Tabell2() {}   // privat standardkonstruktør - hindrer instansiering
 
-    // Metoden bytt(int[] a, int i, int j)       Programkode 1.1.8 d)
+    // Programkode 1.1.8 d)
+    // Metoden bytt(int[] a, int i, int j)
     public static void bytt(int[] a, int i, int j) {
         int temp = a[i]; a[i] = a[j]; a[j] = temp;
     }
 
-    // Metoden randPerm(int n)                   Programkode 1.1.8 e)
+    // Programkode 1.1.8 e)
+    // Metoden randPerm(int n)
     public static int[] randPerm(int n) { // en effektiv versjon
 
         Random r = new Random();         // en randomgenerator
@@ -30,7 +33,8 @@ public class Tabell2 { // Samleklasse for tabellmetoder
         return a;                        // permutasjonen returneres
     }
 
-    // Metoden randPerm(int[] a)                 Programkode 1.1.8 f)
+    // Programkode 1.1.8 f)
+    // Metoden randPerm(int[] a)
     public static void randPerm(int[] a) { // stokker om a
 
         Random r = new Random();     // en randomgenerator
@@ -42,7 +46,8 @@ public class Tabell2 { // Samleklasse for tabellmetoder
         }
     }
 
-    // Metoden maks(int[] a, int fra, int til)   Programkode 1.2.1 b)
+    // Programkode 1.2.1 b)
+    // Metoden maks(int[] a, int fra, int til)
     public static int maks(int[] a, int fra, int til) {
         if (fra < 0 || til > a.length || fra >= til) {
             throw new IllegalArgumentException("Illegal interval!");
@@ -56,10 +61,11 @@ public class Tabell2 { // Samleklasse for tabellmetoder
             m = i;               // indeks til største verdi oppdateres
             maksverdi = a[m];    // største verdi oppdateres
         }
-        return m;  // posisjonen til største verdi i a[fra:til>
+        return m;  // posisjonen til største verdi i a[fra:til)
     }
 
-    // Metoden maks(int[] a)                     Programkode 1.2.1 c)
+    // Programkode 1.2.1 c)
+    // Metoden maks(int[] a)
     public static int maks(int[] a) { // bruker hele tabellen
 
         return maks(a,0,a.length);  // kaller metoden over
@@ -76,7 +82,7 @@ public class Tabell2 { // Samleklasse for tabellmetoder
             minverdi = a[m];    // minste verdi oppdateres
         }
 
-        return m;  // posisjonen til minste verdi i a[fra:til>
+        return m;  // posisjonen til minste verdi i a[fra:til)
     }
 
     // min-metodene - se Oppgave 1 i Avsnitt 1.2.1
@@ -104,11 +110,13 @@ public class Tabell2 { // Samleklasse for tabellmetoder
      * 	Den skal skrive ut hele tabellen - alle på én linje, en blank mellom hvert tall.
      * 	Ikke mellomrom og ikke linjeskift etter siste verdi. Legg begge metodene i samleklassen Ukesoppgaver2.Tabell.
      */
-    public static void skriv(int[] a, int fra, int til) { // ** fungerer ikke som den skal ***
+
+    public static void skriv(int[] a, int fra, int til) {
         for (int i = fra + 1; i < til; ++i) {
-            if (til - fra < 0) {
+            if (til - fra > 0) {
                 System.out.print(" " + a[i]);
-            } else if (til - fra > 0) {
+                a[i] = fra;
+            } else if (til - fra < 0) {
                 System.out.print(a[fra] + "\n");
             }
         }
@@ -128,6 +136,40 @@ public class Tabell2 { // Samleklasse for tabellmetoder
         if (til - fra > 0) {
             System.out.println(a[fra]);
         }
+    }
+
+    /**
+     *  Oppgave 1  - avslitt 1.2.3
+     *  Legg metodene Programkode 1.2.3 a) og 1.2.3 d), inn i samleklassen Tabell.
+     */
+    // 1.2.3 a)
+    public static void fratilKontroll(int tablengde, int fra, int til)
+    {
+        if (fra < 0)                                  // fra er negativ
+            throw new ArrayIndexOutOfBoundsException
+                    ("fra(" + fra + ") er negativ!");
+
+        if (til > tablengde)                          // til er utenfor tabellen
+            throw new ArrayIndexOutOfBoundsException
+                    ("til(" + til + ") > tablengde(" + tablengde + ")");
+
+        if (fra > til)                                // fra er større enn til
+            throw new IllegalArgumentException
+                    ("fra(" + fra + ") > til(" + til + ") - illegalt intervall!");
+    }
+    // 1.2.3 d)
+    public static void vhKontroll(int tablengde, int v, int h)
+    {
+        if (v < 0)
+            throw new ArrayIndexOutOfBoundsException("v(" + v + ") < 0");
+
+        if (h >= tablengde)
+            throw new ArrayIndexOutOfBoundsException
+                    ("h(" + h + ") >= tablengde(" + tablengde + ")");
+
+        if (v > h + 1)
+            throw new IllegalArgumentException
+                    ("v = " + v + ", h = " + h);
     }
 
 } // class Ukesoppgaver2.Tabell2
