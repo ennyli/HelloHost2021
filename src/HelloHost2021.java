@@ -3,6 +3,9 @@ import java.util.Arrays;
 public class HelloHost2021 {
     /**
      * Windows: [alt] + [enter] mens du holder på klassen for å lage tester.
+     *
+     * Er metoden STATIC er den synlig for andre metoder i samme klasse. Er den PUBLIC i tillegg er metoden
+     * også tilgjengelig for andre klasser.
      */
 
     // forkortelse 'main' autofyller main-metoden.
